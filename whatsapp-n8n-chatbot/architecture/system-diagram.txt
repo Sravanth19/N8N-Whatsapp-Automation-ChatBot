@@ -1,0 +1,35 @@
+WhatsApp n8n Chatbot System Diagram
+===================================
+
+[WhatsApp Cloud API]
+        |
+        | (Webhook)
+        v
+[n8n Webhook Node]
+        |
+        | (Process Message)
+        v
+[n8n OpenAI Integration Node]
+        |
+        | (Generate Response)
+        v
+[n8n Send Message Node]
+        |
+        | (HTTP Request)
+        v
+[WhatsApp Cloud API - Send Message]
+
+Components:
+- WhatsApp Cloud API: Handles incoming messages and outgoing replies
+- n8n Workflows: Orchestrates the message processing pipeline
+- OpenAI API: Provides intelligent response generation
+- Webhook: Receives messages from WhatsApp
+- HTTP Request: Sends replies back to WhatsApp
+
+Data Flow:
+1. User sends message to WhatsApp number
+2. WhatsApp Cloud API forwards message to n8n webhook
+3. n8n processes the message and sends to OpenAI
+4. OpenAI generates a response
+5. n8n sends the response back to WhatsApp via API
+6. User receives the reply in WhatsApp

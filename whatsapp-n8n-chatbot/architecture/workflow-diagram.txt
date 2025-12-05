@@ -1,0 +1,40 @@
+WhatsApp n8n Chatbot Workflow Diagram
+=====================================
+
+Start
+  |
+  v
+[Webhook Trigger]
+  | (Receive WhatsApp message)
+  v
+[Extract Message Data]
+  | (Parse JSON payload)
+  v
+[Condition: Is Message Valid?]
+  | Yes
+  v
+[OpenAI Chat Model]
+  | (Generate response based on message)
+  v
+[Format Response]
+  | (Prepare WhatsApp API payload)
+  v
+[HTTP Request Node]
+  | (Send message to WhatsApp API)
+  v
+End
+
+Workflow Steps:
+1. Webhook receives incoming message from WhatsApp
+2. Extract relevant data (sender, message text, etc.)
+3. Validate the message (check for required fields)
+4. Send message content to OpenAI for processing
+5. Receive generated response from OpenAI
+6. Format the response for WhatsApp API
+7. Send HTTP POST request to WhatsApp Cloud API
+8. Workflow completes
+
+Error Handling:
+- If message is invalid, log error and skip processing
+- If OpenAI fails, send default response
+- If WhatsApp API fails, retry or log error
