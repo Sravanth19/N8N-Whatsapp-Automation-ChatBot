@@ -5,6 +5,7 @@
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT_4-412991?style=for-the-badge&logo=openai&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-Scripting-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 
+
 > **A scalable, event-driven chatbot pipeline.** This project integrates the WhatsApp Cloud API with OpenAI via n8n to create an intelligent, automated conversational agent capable of handling real-world queries.
 
 ---
