@@ -123,7 +123,37 @@ Use the shell script to send a fake WhatsApp payload to your n8n instance.
 ./scripts/test-webhook.sh
 
 ```
+---
 
+
+# 🔧 Troubleshooting
+
+Common issues and how to fix them.
+
+## 1. Webhook Verification Failed
+**Error:** Meta says "The callback URL or verify token couldn't be validated."
+**Fix:**
+* Ensure your n8n workflow is **Active**.
+* Ensure the `Verify Token` you typed in the Meta Dashboard matches exactly what is in your n8n Webhook node settings.
+* Check if your n8n instance is publicly accessible (if hosting locally, use a tunnel like `ngrok`).
+
+## 2. Messages Not Delivering
+**Error:** n8n says "Success", but no message appears on WhatsApp.
+**Fix:**
+* **Token Expiry:** If you are using a Temporary Access Token, it expires every 24 hours. Refresh it in the Meta Dashboard.
+* **Sandbox Mode:** If your app is in Development mode, you can only send messages to numbers that have been verified in the Meta Dashboard.
+* **Conversation Window:** You can only reply to a user within 24 hours of their last message.
+
+## 3. OpenAI Errors
+**Error:** `429 Too Many Requests` or `Quota Exceeded`.
+**Fix:**
+* Check your OpenAI billing settings. You must have credits/balance available.
+* If using GPT-4, ensure your account has access to it. If not, switch the model in n8n to `gpt-3.5-turbo`.
+
+## 4. Infinite Loop
+**Error:** The bot replies to itself endlessly.
+**Fix:**
+* Add a filter node in n8n immediately after the Webhook to check if the incoming message is `from_me=true`. If so, stop the workflow.
 ---
 <div align="center">
 
