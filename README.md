@@ -65,9 +65,10 @@ This architecture is serverless (when using n8n Cloud) or self-hostable, making 
 
 ## ⚙️ Architecture
 
-The system follows a linear event-driven flow:
 
-![System Diagram](architecture/system-diagram.png)
+ 🔄 n8n Workflow Diagram
+
+![n8n Workflow](https://github.com/Sravanth19/N8N-Whatsapp-Automation-ChatBot/raw/261b91c521ac8217a651eeb847c226869ffedd5e/n8n_Flow_Whatapp_Message%20_Automation.png)
 
 1.  **Ingest:** User sends a message -> Meta Cloud API -> n8n Webhook.
 2.  **Process:** n8n formats the text -> Sends to OpenAI API.
